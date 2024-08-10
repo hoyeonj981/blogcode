@@ -21,6 +21,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// html parser
+	implementation group: 'org.jsoup', name: 'jsoup', version: '1.18.1'
+
+	// http clients
+	implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.14'
+	implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.12.0'
+
 }
 
 tasks.named('test') {

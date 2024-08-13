@@ -68,13 +68,14 @@ public class EmartPriceCrawler {
 
             var itemListElements = doc.selectXpath("//li[@class=\"mnemitem_grid_item\"]");
             itemListElements.forEach(el -> {
-                // todo
-                /*
-                *   1. 위 추출할 요소를 추출하는 로직이 필요
-                 */
-//              System.out.println(el.text());
+                var text = el.text();
+                System.out.println(text);
             });
-//            System.out.println(itemListElements.size());
+            System.out.println("item list size : " + itemListElements.size());
+
+            System.out.println();
+            System.out.println("--------");
+            System.out.println();
 
             /*
             *   pagination이 존재할 경우 추가로 요청을 보내야 한다.
@@ -82,20 +83,21 @@ public class EmartPriceCrawler {
              */
 
             // pagination 정보
-            var pagination = doc.select("#item_navi > div > a, #item_navi > div > strong");
+            var pagination = doc.select("#item_navi > div > a");
             pagination.forEach(el -> {
                 System.out.println(el.text());
+                var attr = el.attr("data-filter-value");
+                System.out.println(attr);
             });
             System.out.println(pagination.size());
 
+            System.out.println();
             System.out.println("------");
+            System.out.println();
 
             // 현재 pagination position
-            var currentPosition = doc.select("#item_navi > div > strong");
-            currentPosition.forEach(el -> {
-                System.out.println(el.text());
-            });
-            System.out.println(currentPosition.size());
+            var currentPosition = doc.selectFirst("#item_navi > div > strong");
+            System.out.println(currentPosition.text());
 
         } catch (ClientProtocolException e) {
             // 해당 에러는 도메인 영역, 애플리케이션 에러 등으로 처리할 필요가 있다.

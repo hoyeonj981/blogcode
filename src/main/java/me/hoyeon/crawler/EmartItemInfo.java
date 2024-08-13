@@ -13,4 +13,6 @@ public class EmartItemInfo {
     public EmartItemInfo() {
         this(new EnumMap<>(EmartItemInfoEnum.class));
     }
+
+
 }

@@ -32,6 +32,9 @@ dependencies {
 	//gson
 	implementation group: 'com.google.code.gson', name: 'gson', version: '2.10.1'
 
+	//javassist
+	implementation group: 'javassist', name: 'javassist', version: '3.12.1.GA'
+
 }
 
 tasks.named('test') {
